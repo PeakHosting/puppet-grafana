@@ -48,6 +48,10 @@
 # to graphite, elasticsearch, influxdb, and/or opentsb. See params.pp for the
 # defaults.
 #
+# [*admin_password*]
+# If you want to specify password before saving, please specify it bellow
+# The purpose of this password is not security, but to stop some users
+# from accidentally changing dashboards
 # === Examples
 #
 #  class { '::grafana':
@@ -78,6 +82,7 @@ class grafana (
     $grafana_group      = $grafana::params::grafana_group,
     $default_route      = $grafana::params::default_route,
     $datasources        = $grafana::params::datasources,
+    $admin_password     = '',
 ) inherits grafana::params {
     # TODO: make sure at least one is 'default = true' - probably requires use of lambdas
     # TODO: make sure at least one is 'grafanaDB = true' - probably requires use of lambdas
