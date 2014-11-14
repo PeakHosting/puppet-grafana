@@ -52,6 +52,10 @@
 # If you want to specify password before saving, please specify it bellow
 # The purpose of this password is not security, but to stop some users
 # from accidentally changing dashboards
+#
+# [*max_results*]
+# Maximum search results returned from a search
+#
 # === Examples
 #
 #  class { '::grafana':
@@ -83,6 +87,7 @@ class grafana (
     $default_route      = $grafana::params::default_route,
     $datasources        = $grafana::params::datasources,
     $admin_password     = '',
+    $max_results        = 20,
 ) inherits grafana::params {
     # TODO: make sure at least one is 'default = true' - probably requires use of lambdas
     # TODO: make sure at least one is 'grafanaDB = true' - probably requires use of lambdas
